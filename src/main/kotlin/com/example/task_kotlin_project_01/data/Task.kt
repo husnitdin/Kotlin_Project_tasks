@@ -1,9 +1,10 @@
 package com.example.springboot_project_01.data
 
 import com.example.springboot_project_01.data.model.Priority
+import jakarta.persistence.*
+import jakarta.validation.constraints.*
 import java.time.LocalDateTime
-import javax.persistence.*
-import javax.validation.constraints.*
+
 
 @Entity
 @Table(name = "task", uniqueConstraints = [UniqueConstraint(name = "uk_task_description", columnNames = ["description"])])

@@ -5,7 +5,7 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class TaskKotlinProject01Application
-
 fun main(args: Array<String>) {
     runApplication<TaskKotlinProject01Application>(*args)
+    println("Marhaba Habibi Coding / مرحبا حبيبي")
 }
