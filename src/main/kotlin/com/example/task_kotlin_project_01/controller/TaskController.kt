@@ -9,18 +9,27 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
+/**
+ * Author: husnitdin@gmail.com
+ * Date: 11/10/23
+ * Time: 16:30
+ */
+
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/v1/api/")
 class TaskController(private val service: TaskService) {
 
     @GetMapping("all-tasks")
-    fun getAllTasks(): ResponseEntity<List<TaskDto>> = ResponseEntity(service.getAllTasks(), HttpStatus.OK)
+    fun getAllTasks(): ResponseEntity<List<TaskDto>> =
+        ResponseEntity(service.getAllTasks(), HttpStatus.OK)
 
     @GetMapping("open-tasks")
-    fun getAllOpenTasks(): ResponseEntity<List<TaskDto>> = ResponseEntity(service.getAllOpenTasks(), HttpStatus.OK)
+    fun getAllOpenTasks(): ResponseEntity<List<TaskDto>> =
+        ResponseEntity(service.getAllOpenTasks(), HttpStatus.OK)
 
     @GetMapping("closed-tasks")
-    fun getAllClosedTasks(): ResponseEntity<List<TaskDto>> = ResponseEntity(service.getAllClosedTasks(), HttpStatus.OK)
+    fun getAllClosedTasks(): ResponseEntity<List<TaskDto>> =
+        ResponseEntity(service.getAllClosedTasks(), HttpStatus.OK)
 
     @GetMapping("task/{id}")
     fun getTaskById(@PathVariable id: Long): ResponseEntity<TaskDto> =
@@ -29,13 +38,15 @@ class TaskController(private val service: TaskService) {
     @PostMapping("create")
     fun createTask(
         @Valid @RequestBody createRequest: TaskCreateRequest
-    ): ResponseEntity<TaskDto> = ResponseEntity(service.createTask(createRequest), HttpStatus.OK)
+    ): ResponseEntity<TaskDto> =
+        ResponseEntity(service.createTask(createRequest), HttpStatus.OK)
 
     @PatchMapping("update/{id}")
     fun updateTask(
         @PathVariable id: Long,
         @Valid @RequestBody updateRequest: TaskUpdateRequest
-    ): ResponseEntity<TaskDto> = ResponseEntity(service.updateTask(id, updateRequest), HttpStatus.OK)
+    ): ResponseEntity<TaskDto> =
+        ResponseEntity(service.updateTask(id, updateRequest), HttpStatus.OK)
 
     @DeleteMapping("delete/{id}")
     fun deleteTask(@PathVariable id: Long): ResponseEntity<String> =

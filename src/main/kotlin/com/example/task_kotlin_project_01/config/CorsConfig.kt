@@ -5,6 +5,12 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
+/**
+ * Author: husnitdin@gmail.com
+ * Date: 11/10/23
+ * Time: 17:10
+ */
+
 @Configuration
 class CorsConfig {
 

@@ -5,7 +5,6 @@ import jakarta.persistence.*
 import jakarta.validation.constraints.*
 import java.time.LocalDateTime
 
-
 @Entity
 @Table(name = "task", uniqueConstraints = [UniqueConstraint(name = "uk_task_description", columnNames = ["description"])])
 class Task {

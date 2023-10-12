@@ -13,6 +13,12 @@ import kotlin.reflect.full.memberProperties
 import org.springframework.util.ReflectionUtils
 import java.lang.reflect.Field
 
+/**
+ * Author: husnitdin@gmail.com
+ * Date: 11/10/23
+ * Time: 16:10
+ */
+
 @Service
 class TaskService(private val repository: TaskRepository) {
 
@@ -71,12 +77,12 @@ class TaskService(private val repository: TaskRepository) {
         checkForTaskId(id)
         val existingTask: Task = repository.findTaskById(id)
 
-        for (prop in TaskUpdateRequest::class.memberProperties) {
-            if (prop.get(updateRequest) != null) {
-                val field: Field? = ReflectionUtils.findField(Task::class.java, prop.name)
+        for (item in TaskUpdateRequest::class.memberProperties) {
+            if (item.get(updateRequest) != null) {
+                val field: Field? = ReflectionUtils.findField(Task::class.java, item.name)
                 field?.let {
                     it.isAccessible = true
-                    ReflectionUtils.setField(it, existingTask, prop.get(updateRequest))
+                    ReflectionUtils.setField(it, existingTask, item.get(updateRequest))
                 }
             }
         }

@@ -5,6 +5,12 @@ import org.springframework.stereotype.Repository
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
+/**
+ * Author: husnitdin@gmail.com
+ * Date: 12/10/23
+ * Time: 10:41
+ */
+
 @Repository
 interface TaskRepository : JpaRepository<Task, Long> {
 

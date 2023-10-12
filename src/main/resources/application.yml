@@ -1,7 +1,6 @@
 logging:
   file:
     name: app.log
-
 server:
   error:
     include-binding-errors: always
@@ -11,7 +10,7 @@ server:
 
 spring:
   datasource:
-    username: ${DATASOURCE_USERNAME:dataconn}
+    username: ${DATASOURCE_USERNAME:sa}
     password: ${DATASOURCE_PASSWORD:''}
     url: ${DATASOURCE_URL:jdbc:h2:mem:testdb}
     driver-class-name: ${DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
